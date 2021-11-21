@@ -62,7 +62,7 @@ module.exports = {
           },
           {
             text: 'CSS 手写面试题',
-            link: '/CSS/CSSWrite.md'
+            link: '/CSS/CSS手写代码.md'
           }
         ]
       },
