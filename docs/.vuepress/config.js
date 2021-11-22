@@ -37,6 +37,14 @@ module.exports = {
           {
             text: 'JD 分析',
             link: '/prepare/JDAnalysis.md'
+          },
+          {
+            text: '面试流程',
+            link: '/prepare/process.md'
+          },
+          {
+            text: '公司汇总',
+            link: '/prepare/company.md'
           }
         ]
       },
@@ -73,11 +81,31 @@ module.exports = {
         children: [
           {
             text: 'JS 数据类型',
-            link: '/JS/dataType.md'
+            link: '/JS/数据类型.md'
           },
           {
             text: 'JS 执行机制',
-            link: '/JS/execute.md'
+            link: '/JS/执行机制.md'
+          },
+          {
+            text: 'JS 原型与原型链',
+            link: '/JS/原型与原型链.md'
+          },
+          {
+            text: 'JS 作用域与闭包',
+            link: '/JS/作用域与闭包.md'
+          },
+          {
+            text: 'JS 同步异步',
+            link: '/JS/同步异步.md'
+          },
+          {
+            text: 'JS 其他杂乱知识点',
+            link: '/JS/其他杂乱知识点.md'
+          },
+          {
+            text: 'JS 手写代码',
+            link: '/JS/JS手写代码.md'
           }
         ]
       }
