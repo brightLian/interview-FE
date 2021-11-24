@@ -6,3 +6,5 @@ author：brightLian
 - 获取代码：git clone https://github.com/brightLian/interview-FE
 - 安装依赖：npm i
 - 启动服务：npm run docs:dev
+
+如果启动不成功可能的原因是 node 版本的问题，可以升级 node 版本到 12以上即可。
