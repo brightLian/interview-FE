@@ -29,85 +29,91 @@ module.exports = {
         text: '面试前准备工作',
         collapsable: true,
         sidebarDepth: 2,
-        children: [
-          {
-            text: '简历准备',
-            link: '/prepare/resume.md'
-          },
-          {
-            text: 'JD 分析',
-            link: '/prepare/JDAnalysis.md'
-          },
-          {
-            text: '面试流程',
-            link: '/prepare/process.md'
-          },
-          {
-            text: '公司汇总',
-            link: '/prepare/company.md'
-          }
-        ]
+        children: ['/准备工作/简历准备.md', '/准备工作/JD分析.md', '/准备工作/面试流程.md', '/准备工作/公司选择.md']
       },
       {
         text: 'HTML 相关',
         collapsable: true,
         sidebarDepth: 2,
-        children: [
-          {
-            text: 'HTML 基础知识面试题',
-            link: '/HTML/HTML.md'
-          }
-        ]
+        children: ['/HTML/HTML.md']
       },
       {
         text: 'CSS 相关',
         collapsable: true,
         sidebarDepth: 2,
-        children: [
-          {
-            text: 'CSS 基础知识面试题',
-            link: '/CSS/CSS.md'
-          },
-          {
-            text: 'CSS 手写面试题',
-            link: '/CSS/CSS手写代码.md'
-          }
-        ]
+        children: ['/CSS/CSS.md', '/CSS/CSS手写代码.md']
       },
       {
         text: 'JS 相关',
         collapsable: true,
         sidebarDepth: 2,
-        children: [
-          {
-            text: 'JS 数据类型',
-            link: '/JS/数据类型.md'
-          },
-          {
-            text: 'JS 执行机制',
-            link: '/JS/执行机制.md'
-          },
-          {
-            text: 'JS 原型与原型链',
-            link: '/JS/原型与原型链.md'
-          },
-          {
-            text: 'JS 作用域与闭包',
-            link: '/JS/作用域与闭包.md'
-          },
-          {
-            text: 'JS 同步异步',
-            link: '/JS/同步异步.md'
-          },
-          {
-            text: 'JS 其他杂乱知识点',
-            link: '/JS/其他杂乱知识点.md'
-          },
-          {
-            text: 'JS 手写代码',
-            link: '/JS/JS手写代码.md'
-          }
-        ]
+        children: ['/JS/数据类型.md', '/JS/执行机制.md', '/JS/原型与原型链.md', '/JS/作用域与闭包.md', '/JS/同步异步.md', '/JS/其他杂乱知识点.md', '/JS/JS手写代码.md']
+      },
+      {
+        text: '浏览器',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/浏览器相关/浏览器相关知识点.md']
+      },
+      {
+        text: 'DOM',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/DOM/DOM相关知识点.md']
+      },
+      {
+        text: 'BOM',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/BOM/BOM相关知识点.md']
+      },
+      {
+        text: '计算机基础',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/计算机基础/HTTP.md', '/计算机基础/TCP.md', '/计算机基础/缓存.md', '/计算机基础/计算机基础其他知识点.md']
+      },
+      {
+        text: '算法',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/算法/前端算法.md']
+      },
+      {
+        text: '前端框架',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/前端框架/Vue的基本使用.md', '/前端框架/Vue的高级特性.md', '/前端框架/Vue的实现原理.md', '/前端框架/VueRouter.md', '/前端框架/VueX.md', '/前端框架/react.md', '/前端框架/前端框架原理.md']
+      },
+      {
+        text: '性能优化',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/性能优化/性能优化.md']
+      },
+      {
+        text: '前端工程化',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/前端工程化/git.md', '/前端工程化/webpack.md', '/前端工程化/前端工程化零散知识.md']
+      },
+      {
+        text: '前端安全',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/前端安全/前端安全.md']
+      },
+      {
+        text: 'Node 相关',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/Node/Node.md']
+      },
+      {
+        text: '开放性问题',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: ['/开放性问题/开放性问题.md']
       }
     ],
     sidebarDepth: 2,
