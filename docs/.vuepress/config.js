@@ -95,7 +95,7 @@ module.exports = {
         text: '前端工程化',
         collapsable: true,
         sidebarDepth: 2,
-        children: ['/前端工程化/git.md', '/前端工程化/webpack.md', '/前端工程化/前端工程化零散知识.md']
+        children: ['/前端工程化/git.md', '/前端工程化/webpack.md', '/前端工程化/vite.md', '/前端工程化/前端工程化零散知识.md']
       },
       {
         text: '前端安全',
