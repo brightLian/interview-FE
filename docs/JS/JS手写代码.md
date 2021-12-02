@@ -977,7 +977,7 @@ eventEmitter.emit('article2', 'Javascript 观察者模式');
 ### 使用 proxy 实现简单的数据绑定:star2:
 
 ```html
-
+<!--数据绑定-->
 <body>
 hello,world
 <input type="text" id="model">

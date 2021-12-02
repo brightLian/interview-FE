@@ -23,7 +23,7 @@
 - 特点：圣杯布局与双飞翼布局的不同之处，圣杯布局的的左中右三列容器没有多余子容器存在，通过控制父元素的 padding 空出左右两列的宽度。
 
 ```html
-
+<!--圣杯布局-->
 <header id="header">header</header>
 <section id="container">
   <div id="center">center</div>
@@ -83,7 +83,7 @@
 - 特点：双飞翼布局与圣杯布局的不同之处，圣杯布局的的左中右三列容器，中间 middle 多了一个子容器存在，通过控制 middle 的子容器的 margin 或者 padding 空出左右两列的宽度。
 
 ```html
-
+<!--双飞翼布局-->
 <header id="header">header</header>
 <section id="container">
   <div id="center">
@@ -140,7 +140,7 @@
 利用 border 实现
 
 ```html
-
+<!--三角形-->
 <div class="triangle"></div>
 ```
 
@@ -159,7 +159,7 @@
 利用 border + border-radius 实现
 
 ```html
-
+<!--扇形-->
 <div class="sector"></div>
 ```
 
@@ -178,7 +178,7 @@
 利用 border + rotate 实现
 
 ```html
-
+<!--箭头-->
 <div class="arrow"></div>
 ```
 
@@ -198,7 +198,7 @@
 - 使用伪类 + transform 的形式：以前一些老版本的机型会出现粗细不均的情况，不过这些机型已经基本不在了。
 
 ```html
-
+<!--1像素问题-->
 <div class="border-shadow">法一：使用 box-shadow 的形式：颜色会变浅</div>
 <div class="border-scale">法二：使用缩放实现，对 1px 高度线条进行0.5倍缩放</div>
 <div class="border-base64">法三：base64 编码实现</div>
