@@ -130,9 +130,11 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
 
 ### 媒体查询是什么？
 
-- 定义：通过查询用户的设备信息属于哪种类型，让网页能够在不同的设备下展示特定效果。
-- 作用：通常用在解决兼容性问题上。
-- 类型：在 web 应用开发时通常会用到 screen （屏幕）类型，有时调用打印机时会用到 print 类型。
+定义：通过查询用户的设备信息属于哪种类型，让网页能够在不同的设备下展示特定效果。
+
+作用：通常用在解决兼容性问题上。
+
+类型：在 web 应用开发时通常会用到 screen （屏幕）类型，有时调用打印机时会用到 print 类型。
 
 ### #px、em、rem 等单位的区别？
 
@@ -206,31 +208,32 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
     - 子元素 position: absolute + top: 0 + right:0 + bottom:0 + left: 0 + margin: auto;（万能方式，兼容 IE 版本）
     - 父元素 display: flex + justify-content: center + align-items: center;
 
-### CSS3新特性有哪些？
+### CSS3新特性有哪些？:star2:
 
-- 背景：background-size、background-position 等
-- 边框：border-radius、border-image 等
-- 阴影：文本阴影 text-shadow、元素阴影 box-shadow
-- 伪类选择器：nth-child、first-child、last-child 等
-- 渐变：线性渐变 line-gradient、径向渐变 radial-gradient
-- 2D、3D 变换：移动元素 translate、缩放 scale、旋转 rotate 等
-- flex 布局
+- 新增了一些伪类选择器：如 nth-child(n)、last-child 等。
+- 新增了一些样式：
+  - 背景：background-size、background-position 等
+  - 边框：border-radius、border-image 等
+  - 阴影：文本阴影 text-shadow、元素阴影 box-shadow
+- 新增了 transition 渐变：
+  - 用途：可以被指定为一个或多个CSS属性的过渡效果，多个属性之间用逗号进行分隔。
+  - 用法：transition： CSS属性（必填），花费时间（必填），效果曲线(非必填，默认ease)，延迟时间(非必填，默认0)。
+  - 包含了4个属性：transition-property、transition-duration、transition-timing-function、transition-delay。
+- 新增了 transform 变换：
+  - 用途：允许你旋转，缩放，倾斜或平移给定元素。
+  - 用法：位移使用 transform: translate；缩放使用 transform: scale；旋转使用：transform: rotate；倾斜使用 transform: skew 等。
+- 新增了 animation 动画：
+  - 用途：用于实现自定义动画。
+  - 用法：通过 @keyframes 来定义关键帧，动画只需要定义一些关键的帧，而其余的帧，浏览器会根据计时函数插值计算出来。
+- 新增了 gradient 渐变：包含了线性渐变 linear-gradient 和径向渐变 radial-gradient。
+- 新增了布局方式：如 flex 布局、grid 布局。
 
-### 谈谈你对 CSS 动画与过渡的理解？
+### transition 和 animation 有什么区别？:star2:
 
-- 动画 animation：
-  - animation-name：动画名称
-  - animation-duration：动画间隔
-  - animation-fill-mode：动画静止模式
-- 过渡 transition：
-  - transition-property：过渡属性
-  - transition-duration：过渡间隔
-  - transition-delay：过渡延迟
-- 动画属性：
-  - translate：偏移
-  - scale：缩放
-  - rotate：旋转
-  - opacity：透明度
+1. transition 只是过渡，是样式的变化过程，只有开始和结束；animation 指的是动画，通过设置中帧来定义变化的过程。
+2. transition 只有两帧；animation 可以结合 keyframe 设置每一帧 。
+3. transition 只能通过 hover 或者 js 事件来配合触发；animation 配合 @keyframe 可以不触发事件就触发这个过程。
+4. transition 只能触发一次；animation 可以设置很多的属性，比如循环次数，动画结束的状态等等。
 
 ### 介绍下 requestAnimationFrame？:star2:
 
@@ -246,3 +249,19 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
 - 采用 base64 编码来实现
 - 采用阴影模拟边框 box-shadow: 0 0 1px 0 #000 inset（但是颜色会变浅）
 - 采用 svg 图片形式，利用 svg 描边，svg 的1像素不会受到屏幕的影响。
+
+### 刘海屏如何适配？
+
+通过设置安全区的方式，如 paddingBottom: calc(env(safe-area-inset-bottom) + 10px)。
+
+### 一个页面需要同时适配 PC 端和移动端怎么做？rem 和 vw 方案有什么区别？
+
+如果一个页面需要同时适配 PC 和移动端，这个时候需要考虑响应式布局。我们可以考虑使用 media query、rem、vw 等方式进行适配。
+
+**rem** 属于之前较为主流的一种响应式布局方式，对于不同屏幕，我们只需要动态修改根元素 font-size 值，所有元素就会按比例放大或者缩小，从而做到页面的自动适配效果。  
+**rem 的弊端：** 这种方法确实便捷，兼容性也很好，是目前非常主流的弹性布局方案。弊端之一：和根元素 font-size 值强耦合，系统字体放大或缩小时，会导致布局错乱；弊端之二：html 文件头部需插入一段 js 代码。
+
+**vm** 属于目前推荐的一种响应式布局的方式。上面介绍的动态 rem 方案，其本质是让页面元素大小跟随屏幕宽度的变化成比例缩放。CSS Viewport units
+（视口单位）正是一种相对于屏幕宽高的一种长度单位，并且兼容性越来越好。视口单位有：vw、vh 等。vw 单位表示根元素宽度的百分比，1vw 等于视口宽度的1%。   
+**vw 适配方案的流程：** meta 标签设置 viewport 宽度为屏幕宽度；开发环境配置 postcss-px-to-viewport 或者类似插件；根据设计稿写样式，元素宽高直接取设计稿宽高即可，单位为 px，插件会将其转换为
+vw；段落文本也按照设计稿写，单位为px，不需要转换为 vw。
