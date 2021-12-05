@@ -18,8 +18,8 @@ plugins：用于解决 loader 不能解决的事情，扩展 webpack 的功能�
 - style-loader：将模块的导出作为样式添加到 DOM 中。
 - file-loader：将文件打包到输出文件夹。（常用于处理图片）
 - url-loader：将文件打包到输出文件夹，但是存在大小限制。
-- image-loader：加载并压缩图片文件。 
-  
+- image-loader：加载并压缩图片文件。
+
 注意：loader 是有执行顺序的，它的执行顺序是从后往前的。
 
 ### webpack 中常见的 plugin 有哪些？:star2:
@@ -41,7 +41,6 @@ plugins：用于解决 loader 不能解决的事情，扩展 webpack 的功能�
 ### loader 和 plugin 之间的区别？
 
 loader 模块转换器。是用来告诉 webpack 如何转化处理某一类型的文件，并且引入到打包出的文件中。
-
 
 plugin 扩展插件。是用来自定义 webpack 打包过程的方式，参与 webpack 打包的整个流程，用于 webpack 功能的扩展。
 
@@ -111,7 +110,7 @@ import('./xxx').then(res => {
 webpack 的热更新依赖于 HotModuleReplacementPlugin 插件配置。
 
 HMR 的核心：本质就是客户端从服务端拉取更新后的文件。webpackDevServer 和浏览器之间维护一个 websocket，当本地资源发送变化时， WDS 会向 浏览器推送更新，并带上构建时的
-  hash，让客户端与上一次资源进行对比。 客户端对比出现差异时会向 WDS 发送请求获取更改的内容。
+hash，让客户端与上一次资源进行对比。 客户端对比出现差异时会向 WDS 发送请求获取更改的内容。
 
 ### webpack 如何优化前端性能？:star2:
 
@@ -200,7 +199,19 @@ output: {
 }
 ```
 
-## 为什么 Proxy 不能被 Polyfill？
+### 为什么 Proxy 不能被 Polyfill？
 
 如 Class 可以用 function 模拟；Promise 可以用 callback 模拟。      
 但是Proxy 的功能用现成的语法无法模拟（Object.defineProperty 也不能完全模拟）
+
+### webpack 中 babel 处理兼容性的方案？
+
+- 目前比较推荐两种解决方式
+  - @babel/preset-env + corejs@3 实现语法转换 + 在全局和实例上添加 api，支持全量加载和按需加载，我们简称 polyfill 方案。
+  - @babel/preset-env + @babel/runtime-corejs3 + @babel/plugin-transform-runtime 实现语法转换 + 模拟替换 api，只支持按需加载，我们简称 runtime
+    方案。
+
+- 两种方案的选择：
+  - polyfill 方案很明显的缺点就是会造成全局污染，而且会注入冗余的工具代码，优点是可以根据浏览器对新特性的支持度来选择性的进行兼容性处理。
+  - 不能根据浏览器对新特性的支持度来选择性的进行兼容性处理，也就是说只要在代码中识别到的 api，并且该 api 也存在 core-js-pure 包中，就会自动替换，这样一来就会造成一些不必要的转换，从而增加代码体积。
+  - 所以，polyfill 方案比较适合单独运行的业务项目，如果你是想开发一些供别人使用的第三方工具库，则建议你使用 runtime 方案来处理兼容性方案，以免影响使用者的运行环境。
