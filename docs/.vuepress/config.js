@@ -9,7 +9,7 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: '进入', link: '/introduction' },
       {
-        text: '其他链接',
+        text: '其它链接',
         children: [
           {
             text: '前端算法',
@@ -47,7 +47,7 @@ module.exports = {
         text: 'JS 相关',
         collapsable: true,
         sidebarDepth: 2,
-        children: ['/JS/数据类型.md', '/JS/执行机制.md', '/JS/原型与原型链.md', '/JS/作用域与闭包.md', '/JS/同步异步.md', '/JS/其他杂乱知识点.md', '/JS/JS手写代码.md']
+        children: ['/JS/数据类型.md', '/JS/执行机制.md', '/JS/原型与原型链.md', '/JS/作用域与闭包.md', '/JS/同步异步.md', '/JS/其它杂乱知识点.md', '/JS/JS手写代码.md']
       },
       {
         text: '浏览器',
@@ -71,7 +71,7 @@ module.exports = {
         text: '计算机基础',
         collapsable: true,
         sidebarDepth: 2,
-        children: ['/计算机基础/HTTP.md', '/计算机基础/TCP.md', '/计算机基础/缓存.md', '/计算机基础/计算机基础其他知识点.md']
+        children: ['/计算机基础/HTTP.md', '/计算机基础/TCP.md', '/计算机基础/缓存.md', '/计算机基础/计算机基础其它知识点.md']
       },
       {
         text: '算法',
