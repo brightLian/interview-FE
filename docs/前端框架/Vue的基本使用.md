@@ -143,7 +143,10 @@ watch：更多的是「观察」的作用，类似于某些数据的监听回调
 
 ### 列表组件中写 key，其作用是什么？:star2:
 
-diff 算法中通过 tagName 和 key 来判断 DOM 节点是否相同。减少组件的渲染次数，提升渲染性能。
+key 在列表渲染中的作用是：在复杂的列表渲染中快速准确的找到与 newVnode 相对应的 oldVnode， 从而提升 diff 效率。
 
-- 更准确：因为带 key 就不是就地复用了，在 sameNode 函数 a.key === b.key 对比中可以避免就地复用的情况。所以会更加准确。
-- 更快：利用 key 的唯一性生成 map 对象来获取对应节点，比遍历方式更快。
+如果不用 key，Vue 会采用就地复地原则：最小化 element 的移动，并且会尝试尽最大程度在同适当的地方对相同类型的 element，做 patch 或者 reuse。
+
+如果使用 key，Vue 会根据 keys 的顺序记录 element，曾经拥有了 key 的 element 如果不再出现的话，会被直接 remove 或者 destroyed。
+
+
