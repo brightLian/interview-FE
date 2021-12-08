@@ -15,9 +15,9 @@
 ### margin 设置负值有什么影响？
 
 - margin-top：自己向上移动
-- margin-right：自动向右移动
-- margin-bottom：下方相邻元素向自己靠近
-- margin-left：左方元素向自己靠近
+- margin-right：自己向右移动
+- margin-bottom：自身不移动，下方相邻元素向自己靠近
+- margin-left：自身不移动，左方元素向自己靠近
 - **总结：** 上右影响自己，下左影响相邻元素。
 
 ### line-height 如何继承？
@@ -97,7 +97,7 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
   - 根元素（HTML）
   - 浮动元素
   - position 为 absolute 或者 fixed
-  - overflow 部位 hidden
+  - overflow 不为 hidden
   - display 为 inline-block、flex、table-cell 等
 - 规则：
   - 内部的 box 会在垂直方向上一个一个排列
@@ -215,9 +215,9 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
   - 背景：background-size、background-position 等
   - 边框：border-radius、border-image 等
   - 阴影：文本阴影 text-shadow、元素阴影 box-shadow
-- 新增了 transition 渐变：
+- 新增了 transition 过渡：
   - 用途：可以被指定为一个或多个CSS属性的过渡效果，多个属性之间用逗号进行分隔。
-  - 用法：transition： CSS属性（必填），花费时间（必填），效果曲线(非必填，默认ease)，延迟时间(非必填，默认0)。
+  - 用法：transition： CSS属性（必填），花费时间（必填），效果曲线(非必填，默认 ease)，延迟时间(非必填，默认0)。
   - 包含了4个属性：transition-property、transition-duration、transition-timing-function、transition-delay。
 - 新增了 transform 变换：
   - 用途：允许你旋转，缩放，倾斜或平移给定元素。
@@ -252,7 +252,7 @@ CSS 的常用定位方式有两种，分别为 float 浮动定位和 position �
 
 ### 刘海屏如何适配？
 
-通过设置安全区的方式，如 paddingBottom: calc(env(safe-area-inset-bottom) + 10px)。
+通过设置安全区的方式，如 padding-bottom: calc(env(safe-area-inset-bottom) + 10px)。
 
 ### 一个页面需要同时适配 PC 端和移动端怎么做？rem 和 vw 方案有什么区别？
 

@@ -195,18 +195,21 @@
 
 ### 1像素问题解决方案:star2:
 
-- 使用伪类 + transform 的形式：以前一些老版本的机型会出现粗细不均的情况，不过这些机型已经基本不在了。
+1. 使用 box-shadow 的方式，但是这种方式会使颜色变浅。
+2. 使用伪类 + transform 的形式：以前一些老版本的机型会出现粗细不均的情况，不过这些机型已经基本不在了。
+3. 使用 base64 编码的方式。
+4. 使用 svg 来画一条 1px 的线。
 
 ```html
 <!--1像素问题-->
-<div class="border-shadow">法一：使用 box-shadow 的形式：颜色会变浅</div>
+<div class="box-shadow">法一：使用 box-shadow 的形式：颜色会变浅</div>
 <div class="border-scale">法二：使用缩放实现，对 1px 高度线条进行0.5倍缩放</div>
 <div class="border-base64">法三：base64 编码实现</div>
-<div class="border-svg">法四：base64 编码嵌入SVG实现</div>
+<div class="border-svg">法四：base64 编码嵌入 SVG 实现</div>
 ```
 
 ```css
-.border-shadow {
+.box-shadow {
   box-shadow: inset 0 -1px 1px -1px #000;
 }
 
