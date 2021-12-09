@@ -534,6 +534,8 @@ p1.then((result) => {
 })
 ```
 
+### 实现一个 node 异步函数的 promisify
+
 ### 实现 async/await:star2:
 
 ```javascript
@@ -1029,4 +1031,83 @@ const curry = fn => {
     return fn.apply(null, args);
   }
 }
+```
+
+### 数组转成嵌套对象
+
+```javascript
+// 实现["a","b","c","d"] => {a: {b: {c: {d: null}}}}
+```
+
+### 问输出，如果希望循环中输出123，有哪些方式可以改
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(new Date, i);
+  }, 1000);
+}
+
+console.log(new Date, i);
+```
+
+### 实现两个大数相加
+
+在 JS 中如果不使用 bigInt，数字最大的超出 2^53 -1 时会出现精度丢失的问题。因此对于大数我们采用字符串来存储。那么如何实现两个大数相加
+
+```javascript
+function add (a, b) {
+  //取两个数字的最大长度
+  let maxLength = Math.max(a.length, b.length);
+  //用0去补齐长度
+  a = a.padStart(maxLength, 0); // 00000xxxxxxxxx
+  b = b.padStart(maxLength, 0); // 12345xxxxxxxxx
+  //定义加法过程中需要用到的变量
+  let t = 0;
+  let f = 0;   //"进位"
+  let sum = '';
+  for (let i = maxLength - 1; i >= 0; i--) {
+    t = parseInt(a[i]) + parseInt(b[i]) + f;
+    f = Math.floor(t / 10);
+    sum = t % 10 + sum;
+  }
+  if (f == 1) {
+    sum = '1' + sum;
+  }
+  return sum;
+}
+
+const a = '19960131';
+const b = '1234567890987654321'
+add(a, b); // '1234567891007614452'
+```
+const fn = pipe(addOne, addTwo, addThree, addFour); // 传入pipe的四个函数都是已实现的
+fn(1); // 1 + 1 + 2 + 3 + 4 = 11，输出11
+
+
+实现 ob 和 watch 方法，希望当方法传入 watch 函数时会执行一次，之后每次修改 data 上的属性时，会触发对应的 console
+```javascript
+  const data = ob({ count: 0, foo: 'test' });
+
+  watch(() => {
+      console.log('watch-count', data.count);
+  });
+  watch(() => {
+      console.log('watch-foo', data.foo);
+  });
+
+  data.count += 1;
+  console.log('showcount', data.count);
+  delete data.count;
+  data.foo = 'test2';
+```
+
+输入一个字符串，遇到方括号则对方括号内的字符串重复n次，n是方括号前面的数字，如果没有数字则为1次，可能存在嵌套
+```javascript
+const test1 = "a2[b]a2[b2[c]]";
+// abbabccbcc
+const test2 = "2[3[c]]a2a";
+// cccccca2a
+const test3 = "[abc][d]3[e2]4";
+// abcde2e2e24
 ```
