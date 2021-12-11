@@ -1111,3 +1111,13 @@ const test2 = "2[3[c]]a2a";
 const test3 = "[abc][d]3[e2]4";
 // abcde2e2e24
 ```
+
+### 洗牌
+```javascript
+function shuffle (arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [this[i], this[j]] = [this[j], this[i]]
+  }
+}
+```
